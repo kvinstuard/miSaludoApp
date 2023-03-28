@@ -16,7 +16,13 @@ const resolvers = {
         return `¡Hola, ${message}! Un saludo por parte del profe `;
       },
   },
-};
+
+  Query: {
+    hello: (_, { message }) => {
+        return `¡Hola, ${message}! la hora exacta es : ` + Date.now();
+      },
+  },
+}; 
 
 async function startApolloServer() {
   // Crea la instancia de Apollo Server
