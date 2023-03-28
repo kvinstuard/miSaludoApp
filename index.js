@@ -14,7 +14,8 @@ const typeDefs = gql`
 const resolvers = {
   Query: {
     hello: (_, { message }) => {
-        return `¡Hola, ${message}! Un saludo por parte del profe `;
+        var fecha = new Date();
+        return `¡Hola, ${message}! Un saludo por parte del grupo #3  y la fecha de hoy es:`+fecha;
       },
     hora: (_, { message }) => {
         return `¡Hola, ${message}! la exacta es: ` + Date.now(); 
@@ -22,9 +23,10 @@ const resolvers = {
   },
 }; 
 
+
 async function startApolloServer() {
   // Crea la instancia de Apollo Server
-  const server = new ApolloServer({ typeDefs, resolvers });
+  const server = new ApolloServer({ typeDefs, resolvers});
 
   // Inicia el servidor Apollo
   await server.start();
@@ -50,3 +52,4 @@ async function startApolloServer() {
 }
 
 startApolloServer();
+
