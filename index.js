@@ -6,6 +6,7 @@ const path = require('path');
 const typeDefs = gql`
   type Query {
     hello(message: String!): String
+    hora(message: String!): String
   }
 `;
 
@@ -16,8 +17,11 @@ const resolvers = {
         var fecha = new Date();
         return `¡Hola, ${message}! Un saludo por parte del grupo #3  y la fecha de hoy es:`+fecha;
       },
+    hora: (_, { message }) => {
+        return `¡Hola, ${message}! la exacta es: ` + Date.now(); 
+      },
   },
-};
+}; 
 
 
 async function startApolloServer() {
