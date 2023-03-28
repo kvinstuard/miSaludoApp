@@ -6,6 +6,7 @@ const path = require('path');
 const typeDefs = gql`
   type Query {
     hello(message: String!): String
+    hora(message: String!): String
   }
 `;
 
@@ -15,11 +16,8 @@ const resolvers = {
     hello: (_, { message }) => {
         return `¡Hola, ${message}! Un saludo por parte del profe `;
       },
-  },
-
-  Query: {
-    hello: (_, { message }) => {
-        return `¡Hola, ${message}! la hora exacta es : ` + Date.now();
+    hora: (_, { message }) => {
+        return `¡Hola, ${message}! la exacta es: ` + Date.now(); 
       },
   },
 }; 
