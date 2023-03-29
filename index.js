@@ -7,6 +7,7 @@ const typeDefs = gql`
   type Query {
     hello(message: String!): String
     hora(message: String!): String
+    aviso(message: String!): String
   }
 `;
 
@@ -20,6 +21,9 @@ const resolvers = {
     hora: (_, { message }) => {
         return `¡Hola, ${message}! la exacta es: ` + Date.now(); 
       },
+    aviso: (_, { message }) => {
+      return `¡Hola, ${message}! Debo informar que mañana no hay central `;
+    },
   },
 }; 
 
